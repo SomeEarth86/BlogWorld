@@ -9,7 +9,6 @@ export class AuthService {
         this.client
             .setEndpoint(conf.appwriteURL)
             .setProject(conf.appwriteProjectId);
-
         this.account = new Account(this.client);
     }
 
@@ -41,7 +40,8 @@ export class AuthService {
     async getCurrentUser() {
         // to check whether the user is logged in or not
         try {
-            return this.account.get();
+            return await this.account.get();
+
         } catch (error) {
             console.log("Error from getCurrentUser: auth.js", error);
         }
