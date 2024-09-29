@@ -8,9 +8,9 @@ import { useSelector } from 'react-redux'
 
 function Post() {
 
-    const [post, setPost] = useState([])
-    const { slug } = useParams()
-    const navigate = useNavigate()
+    const [post, setPost] = useState(null)
+    const { slug } = useParams();
+    const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData)
 
@@ -42,7 +42,7 @@ function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={service.getFilePreview(post.featuredImage)}
+                        src={service.getFile(post.featuredImage)}
                         alt={post.title}
                         className="rounded-xl"
                     />

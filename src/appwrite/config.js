@@ -37,7 +37,7 @@ export class Service {
         try {
             console.log("title from updatePost", title);
             console.log("slug from updatePost", slug);
-            
+
             return await this.databases.updateDocument(conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
@@ -72,18 +72,20 @@ export class Service {
     async getPost(slug) {
         try {
             console.log("slug", slug);
-            return await this.databases.getDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug, {})
+
+            return await this.databases.getDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug)
         } catch (error) {
             console.log("Error occured at getPost: config.js", error);
             return false;
         }
     }
 
-    async getAllPost(query = [Query.equal("Status", "active")]) {
+    async getAllPost(query = [Query.equal("status", "active")]) {
         try {
             return await this.databases.listDocuments(conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 query,
+                []
             )
         } catch (error) {
             console.log("Error occured at getAllPost : config.js", error);
@@ -117,10 +119,8 @@ export class Service {
         }
     }
 
-    getFilePreview(fileId) {
-        return this.bucket.getFilePreview(conf.appwriteBucketId,
-            fileId
-        )
+    getFile(fileId) {
+        return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
     }
 
 }
