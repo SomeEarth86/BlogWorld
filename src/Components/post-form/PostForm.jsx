@@ -21,10 +21,8 @@ export default function PostForm({ post }) {
     const userData = useSelector(state => state.auth.userData);
 
     const submit = async (data) => {
-        console.log("Inside Submit postForm.jsx");
-
         if (post) {
-            console.log("inside the postform -> inside the if (of submit Fn)");
+
 
             const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
 
@@ -44,10 +42,7 @@ export default function PostForm({ post }) {
         }
         else {
             const file = await service.uploadFile(data.image[0])
-
             if (file) {
-                console.log("inside the else case of the postform");
-
                 const fileId = file.$id;
                 data.featuredImage = fileId;
                 const dbPost = await service.createPost({ ...data, userId: userData.$id })

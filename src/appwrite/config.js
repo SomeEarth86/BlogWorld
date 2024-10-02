@@ -16,6 +16,7 @@ export class Service {
 
     async createPost({ title, slug, content, featuredImage, status, userId }) {
         try {
+
             return await this.databases.createDocument(conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
@@ -35,8 +36,6 @@ export class Service {
 
     async updatePost(slug, { title, content, featuredImage, status }) {
         try {
-            console.log("title from updatePost", title);
-            console.log("slug from updatePost", slug);
 
             return await this.databases.updateDocument(conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
@@ -71,8 +70,6 @@ export class Service {
 
     async getPost(slug) {
         try {
-            console.log("slug", slug);
-
             return await this.databases.getDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug)
         } catch (error) {
             console.log("Error occured at getPost: config.js", error);
@@ -97,7 +94,7 @@ export class Service {
 
     async uploadFile(file) {
         try {
-            await this.bucket.createFile(conf.appwriteBucketId,
+            return await this.bucket.createFile(conf.appwriteBucketId,
                 ID.unique(),
                 file
             )

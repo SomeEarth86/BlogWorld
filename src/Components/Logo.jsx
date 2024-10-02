@@ -1,10 +1,15 @@
-/* eslint-disable no-unused-vars */
-
-
-function Logo({ width = '100px' }) {
+/* eslint-disable react/prop-types */
+ 
+function Logo({ widthDef = '50px' }) {
     return (
-        <div>Logo</div>
+        <img src="/public/logo.webp"
+            alt="LogoImg"
+            style={{
+                width: widthDef,
+                borderRadius: "50%",
+            }}
+        />
     )
 }
 
-export default Logo
+export default Logo 

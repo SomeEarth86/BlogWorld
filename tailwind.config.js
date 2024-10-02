@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "merri": ["Merriweather", "serif"]
+      },
+      fontWeight: {
+        regular: 400,
+        bold: 700,
+        
+      }
+    },
   },
   plugins: [],
 }

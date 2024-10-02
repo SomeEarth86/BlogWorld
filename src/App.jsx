@@ -21,10 +21,11 @@ function App() {
       })
       .finally(() => setLoading(false))
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+    <div className='font-merri min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Header />
         <main>

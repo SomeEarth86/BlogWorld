@@ -8,8 +8,6 @@ const Header = () => {
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.status)
 
-  console.log("AuthStatus", authStatus);
-
   const navItem = [{
     name: 'Home',
     slug: "/",
@@ -54,7 +52,7 @@ const Header = () => {
               <li key={item.name}>
                 <button
                   onClick={() => navigate(item.slug)}
-                  className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                  className='inline-block font-regular text-xl px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
                 >
                   {item.name}
                 </button>
