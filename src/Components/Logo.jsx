@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
- 
+
 function Logo({ widthDef = '50px' }) {
     return (
-        <img src="/public/logo.webp"
+        <img src={"/src/assets/logo.webp"}
             alt="LogoImg"
             style={{
                 width: widthDef,
